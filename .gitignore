@@ -1,0 +1,16 @@
+/packages
+/Release
+/Debug
+packages.config
+BBodygraphLib
+*.sln
+*.vcxproj
+*.filters
+*.user
+*.db
+*.opendb
+*.suo
+*.ipch
+/x64
+*.bak
+

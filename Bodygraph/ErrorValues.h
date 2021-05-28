@@ -1,0 +1,4 @@
+#pragma once
+
+#define ERROR_NUMBER 0xFFFFFFF
+#define ERROR_STRING "ERROR STRING"

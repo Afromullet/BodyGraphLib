@@ -1,0 +1,118 @@
+Below is a short explanation of the classes/types used in BodyGraphLib
+
+
+_______________________________________
+
+-AnatomyGraph
+
+This is a graph of BodyParts. A vertex is a bodypart, and an edge is a connection between bodyparts. 
+
+
+_______________________________________
+
+-Material
+
+Every Item has a material. Materials can be deformed of fractured, so they have a deformation and fracture strength (Dwarf Fortress Inspiured)
+The material strength determines how a force effects the material. There's a fracture and a deformation strength, and the force applied to a material
+uses those strenghts to determine how the material is morphed
+_______________________________________
+
+-ApplyingForce and ResistingForce
+
+An ApplyingForce is a force applied to a Material or BodyPart.
+A ResistingForce is the kind of resistance a material to the ApplyingForce applied to it
+_______________________________________
+
+
+
+-Item->Armor
+
+_______________________________________
+
+-ArmorLayer
+
+Represents a layer of Armor. A bodypart has a layer of armor. This is so that, for example, we can have leather armor uner chain mail.
+
+An ApplyingForce can be applied to an ArmorLayer, which determines how the material of the armor absorb it.  
+This produces an AppliedForceEffect (type explained later in the document) for each layer. 
+
+
+_____________________________________
+-BodyParts
+
+The vertex of an AnatomyGraph. This has an ArmorLayer and a WoundHandler.
+
+The ArmorLayer is the armor covering the BodyPart, and the WoundHandler handles all of the wounds applied to the bodypart. 
+
+_______________________________________
+
+-AppliedForceType and MaterialEffectType
+
+This is inspired by dwarf fortress. The AppliedForceType has "the kinds of forces that are applied", primarily by an attack.
+The MaterialEffectType is the kind of effect on a Material that force caused.
+
+For example, there is a shear force (AppliedForceType), which can cause a shear deformation or shear fracture effect.
+
+A force is applied to a material, and the material can absorb some of that force. A material has a deformation and a fracture strength.
+The remaining force, after force absorption, is used to determine whether we have a deformatio or fracture effect, or no effect 
+(If not enough force is left to impact the material)
+
+_______________________________________
+
+-WoundTypes and WoundSeverity
+
+The WoundTypes gives us the possible types of wounds that can be caused to a bodypart. WoundSeverity tells us how severe a wound is.
+_______________________________________
+
+-WoundSeverityPair and -WoundTypeMapping
+
+
+The WoundSeverityPair is a wound severity level (I.E, light, medium, heavy). It tells us what kind of wound can be caused by that kind of severity.
+This will be used by the DamageTraverser (explained later in this document). It lets us know what kind of attack can cause what kind of wounds.
+A slashing attack for example would just cause a cut as a low severity wound, but could cause bleeding with a medium wound or dismemberment with a serious wound.
+A blunt force attack for example could just cause bruising with a light wound and a fracture with a heavy wound. 
+
+The WoundType mapping is a list of WoundSeverity pairs. It's really meant to just have three elements (light, medium, heavy)
+
+
+_______________________________________
+-WoundHandler
+
+_______________________________________
+
+-AppliedForceEffect
+
+The most important type/class used when ApplyingForce to a material and a bodypart.
+
+The class holds data that's used in forceCalculations, including the startForce and the endForce (after absorption).
+Also the kind of wounds that CAN be applied (not will be applied). This is by containing a WoundTypeMapping
+
+This often appears in the form of a list to deal with the AppliedForce to each layer of armor. 
+_______________________________________
+
+
+-DamageTraverser and ForceEffectHandler
+
+A DamageTraverser is associated with a "type of attack". A thrust, a slash, a slam. It can even be broken down further, such as
+a spear thrust, a sword thrust, etc.
+
+The DamageTraverser determines how the graph is traversed for an attack of that kind. A thrust for example would target internal vertices,
+a slash outside vertices, and a blunt attack external and internal. 
+
+An important thing a DamageTraverser does is to Apply a Force to a path (a path being a vector of vertices target by the attack). 
+ApplyForceToPath handles all of the force absorption due to armor layers.
+
+It also has a WoundTypeMapping to determine what kind of wounds an attack of this kind can cause. 
+
+It procuces a ForceEffectHandler, explained below. 
+
+
+
+ForceEffectHandler handles applying the actual force to the ArmorLayer and the body part wounds. The only way this is currently created is
+through a DamageTraverser.
+
+The ForceEffectHandler handles applying the Force to the bodypart, its armorLayers, and the wounds. 
+
+_______________________________________
+
+

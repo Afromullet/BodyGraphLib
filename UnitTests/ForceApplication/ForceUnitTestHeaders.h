@@ -1,0 +1,2 @@
+void RunAppliedForceUnitTests();
+void RunDamageTraversalUnitTests();

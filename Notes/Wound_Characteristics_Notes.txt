@@ -1,0 +1,6 @@
+Each attack can have one or more of these effects
+
+BodypartToken : The basic token to identify the body part. Has to match the body part in the XML file
+CanBleed: Self explanatory
+CanFracture: Self explanatory
+CanRupture: Different than bleeding. This basically means that the body part can burst. 

@@ -1,0 +1,378 @@
+<bptokenlist>
+    <bptoken>chest</bptoken>
+    <bptoken>head</bptoken>
+    <bptoken>leftarm</bptoken>
+    <bptoken>rightarm</bptoken>
+    <bptoken>lefthand</bptoken>
+    <bptoken>righthand</bptoken>
+    <bptoken>leftleg</bptoken>
+    <bptoken>rightleg</bptoken>
+    <bptoken>leftfoot</bptoken>
+    <bptoken>rightfoot</bptoken>
+    <bptoken>nose</bptoken>
+    <bptoken>lefteye</bptoken>
+    <bptoken>righteye</bptoken>
+</bptokenlist>
+
+
+<bodyparts>
+    <bpdescription>
+        <bptoken>chest</bptoken>
+        <bodypartname>Chest</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>upperbodysection</section>
+        <relativesize>50</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>head</bptoken>
+        <bodypartname>Head</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>headsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftarm</bptoken>
+        <bodypartname>LeftArm</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>rightarm</bptoken>
+        <bodypartname>RightArm</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>lefthand</bptoken>
+        <bodypartname>LeftHand</bodypartname>
+        <canholdweapon>true</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>handsection</section>
+        <relativesize>5</relativesize>
+        <caninteract>true</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>righthand</bptoken>
+        <bodypartname>RightHand</bodypartname>
+        <canholdweapon>true</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>handsection</section>
+        <relativesize>5</relativesize>
+        <caninteract>true</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftleg</bptoken>
+        <bodypartname>LeftLeg</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>legsection</section>
+        <relativesize>15</relativesize>
+        <canmovecreature>true</true>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>rightleg</bptoken>
+        <bodypartname>RightLeg</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>legsection</section>
+        <relativesize>15</relativesize>
+        <canmovecreature>true</true>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftfoot</bptoken>
+        <bodypartname>LeftFoot</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>footsection</section>
+        <relativesize>5</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>rightfoot</bptoken>
+        <bodypartname>RightFoot</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>footsection</section>
+        <relativesize>5</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>nose</bptoken>
+        <bodypartname>Nose</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>false</canholdarmor>
+        <cansmell>true</cansmell>
+        <section>headsection</section>
+        <relativesize>3</relativesize>
+    </bpdescription>
+</bodyparts>
+
+
+<organs>
+    <bpdescription>
+        <bptoken>rightlung</bptoken>
+        <bodypartname>RightLung</bodypartname>
+        <canbreathe>true</canbreathe>
+        <section>upperbodyinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+
+    <bpdescription>
+        <bptoken>leftlung</bptoken>
+        <bodypartname>LeftLung</bodypartname>
+        <canbreathe>true</canbreathe>
+        <section>upperbodyinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>brain</bptoken>
+        <bodypartname>Brain</bodypartname>
+         <section>headinternalsection</section>
+         <relativesize>5</relativesize>
+         <isorgan>true</isorgan>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>lefteye</bptoken>
+        <bodypartname>LeftEye</bodypartname>
+        <cansee>true</cansee>
+        <section>headexternalsection</section>
+        <relativesize>3</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>righteye</bptoken>
+        <bodypartname>RightEye</bodypartname>
+        <cansee>true</cansee>
+        <section>headexternalsection</section>
+        <relativesize>3</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>kidney</bptoken>
+        <bodypartname>Kidney</bodypartname>
+        <section>chestinternalsection</section>
+        <relativesize>5</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>intestines</bptoken>
+        <bodypartname>Intestines</bodypartname>
+        <section>chestinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+	
+    <bpdescription>
+        <bptoken>internalLevel2A</bptoken>
+        <bodypartname>int2a</bodypartname>
+        <section>chestinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+
+    <bpdescription>
+        <bptoken>internalLevel3A</bptoken>
+        <bodypartname>int3a</bodypartname>
+        <section>chestinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+	
+    <bpdescription>
+        <bptoken>internalLevel2B</bptoken>
+        <bodypartname>int2b</bodypartname>
+        <section>chestinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+	
+    <bpdescription>
+        <bptoken>internalLevel3B</bptoken>
+        <bodypartname>int3b</bodypartname>
+        <section>chestinternalsection</section>
+        <relativesize>10</relativesize>
+        <isorgan>true</isorgan>
+    </bpdescription>
+	
+
+    
+    
+</organs>
+
+<bodypartconnections>
+    
+    
+    <bodypart>
+        <bptoken>chest</bptoken>
+        <connectsto>head</connectsto>
+        <connectiontype>direct</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+
+    <bodypart>
+        <bptoken>chest</bptoken>
+        <connectsto>leftarm</connectsto>
+        <connectiontype>externalleft</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+
+    <bodypart>
+        <bptoken>chest</bptoken>
+        <connectsto>rightarm</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>chest</bptoken>
+        <connectsto>leftleg</connectsto>
+        <connectiontype>externalleft</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>chest</bptoken>
+        <connectsto>rightleg</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+
+    <bodypart>
+        <bptoken>leftarm</bptoken>
+        <connectsto>lefthand</connectsto>
+        <connectiontype>externalleft</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>righthand</bptoken>
+        <connectsto>rightarm</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>leftfoot</bptoken>
+        <connectsto>leftleg</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>rightfoot</bptoken>
+        <connectsto>rightleg</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>nose</bptoken>
+        <connectsto>head</connectsto>
+        <connectiontype>external</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+</bodypartconnections>
+
+
+<organsconnections>
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>leftlung</connectsto>
+        <connectiontype>internalleft</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>rightlung</connectsto>
+        <connectiontype>internalright</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>head</bptoken>
+        <connectsto>brain</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>head</bptoken>
+        <connectsto>lefteye</connectsto>
+        <connectiontype>externalleft</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>head</bptoken>
+        <connectsto>righteye</connectsto>
+        <connectiontype>externalleft</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>kidney</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>intestines</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>intestines</bptoken>
+        <connectsto>internalLevel2A</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+
+	    <organconnection>
+        <bptoken>internalLevel2A</bptoken>
+        <connectsto>internalLevel3A</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>
+	
+    <organconnection>
+        <bptoken>intestines</bptoken>
+        <connectsto>internalLevel2B</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>	
+	
+    <organconnection>
+        <bptoken>internalLevel2B</bptoken>
+        <connectsto>internalLevel3B</connectsto>
+        <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
+    </organconnection>	
+	
+</organconnections>
+
+
