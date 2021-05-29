@@ -1,8 +1,10 @@
 #pragma once
 
 #include "BodyGraphDefs.hpp"
-#include "BodyPart.hpp"
+//#include "BodyPart.hpp"
 
+#include <map>
+#include <vector>
 /*
 A map of a vertex index and the edges that vertex is connected to. This is used to help with graph traversals for calculating combat related things. The index here is an index into the vertex of the Anatomygraph, where the element at each index is a Bodypart. 
 Maybe later down the line I will replace index references with something else, but for now I'm not worrried with that detail.
@@ -13,7 +15,7 @@ worked made using edges easier. Not sure if that's the reason, that is mostly ju
 */
 typedef std::map<int, std::vector<AnatomyEdge>> EdgeMap;
 
-
+class BodyPart;
 
 /*
 The AnatomyGraph data field uses the boost graph library. Each vertex in the graph is a body part, and the edges between the vertices is a connection.

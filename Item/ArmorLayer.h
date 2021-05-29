@@ -2,8 +2,9 @@
 
 #include "Armor.hpp"
 #include "../Material/AppliedForceEffect.hpp"
+#include "../Material/Forces.hpp"
 //#include "../Material/Forces.hpp"
-
+#include <list>
 /*
 Represents a layer of armor.
 

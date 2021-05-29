@@ -1,15 +1,20 @@
 #pragma once
-
+#include "Item/ArmorLayer.h"
 #include "Material/ForceEnums.hpp"
 #include "Material/ForceCalculator.hpp"
+#include "Material//Forces.hpp"
 #include "Bodygraph/BodyGraph.hpp"
-#include "Bodygraph/BodyPart.hpp"
+//#include "Bodygraph/BodyPart.hpp"
 #include "Material/AppliedForceEffect.hpp"
+#include "Item/Armor.hpp"
 #include <memory>
 #include <string>
 #include <vector>
 
-#pragma once
+
+
+
+
 namespace GraphTraversalTypes	
 {
 	enum TraversalTypes
@@ -43,9 +48,12 @@ Also uses the WoundTypes::WoundtypeMapping possibleWoundTypes of the AppliedForc
 
 //Can't use a reference for BodyPart becase we're incrementally adding things to it
 
+class BodyPart;
+
 typedef std::pair <BodyPart*, std::list<AppliedForceEffect>> AppliedForceBodypartPair;
 typedef std::vector <AppliedForceBodypartPair> ForceEffectMap;
 
+//AppliedForceEffect GetFinalForce(AppliedForceBodypartPair &appliedForcePair);
 
 
 
@@ -143,7 +151,7 @@ private:
 	ApplyingForce applyingForce;
 	int numTargets; //How many vertices the DamageTraverser targets
 	int maxTraversalDistance; //How far the DamageTraverser can travel on a path when a fracture material effect occurs. 
-	//WoundTypes::CanCauseWounds canCauseWounds;
+	//WoundTypes::EnWoundProperties canCauseWounds; //Thge 
 
 
 public:

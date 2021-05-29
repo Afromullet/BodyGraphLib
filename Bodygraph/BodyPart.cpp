@@ -7,7 +7,7 @@
 //
 
 #include "BodyPart.hpp"
-#include "ErrorValues.h"
+
 
 //Todo implement. 
 bool BodyPart::operator==(BodyPart &other) const
@@ -126,6 +126,21 @@ void BodyPart::setHealth(int _health)
 	health = _health;
 }
 
+void BodyPart::setLightWoundThreshold(float amount)
+{
+	lightWoundTreshold = amount;
+}
+
+void BodyPart::setMediumWoundThreshold(float amount)
+{
+	mediumWoundThreshold = amount;
+}
+
+void BodyPart::setHeavyWoundThreshold(float amount)
+{
+	heavyWoundThreshold = amount;
+}
+
 void BodyPart::setDamageAmount(float amount)
 {
 	//woundHandler.setDamageAmount(amount);
@@ -193,21 +208,51 @@ float BodyPart::getDamageAmount()
 
 float BodyPart::getLightwoundThreshold() const
 {
-	//return woundHandler.getLightwoundThreshold();
-	return 0.0;
+
+	return lightWoundTreshold;
 
 }
 
 float BodyPart::getMediumoundThreshold() const
 {
-	//return woundHandler.getMediumoundThreshold();
-	return 0.0;
+	
+	return mediumWoundThreshold;
 
 }
 
 float BodyPart::getHeavywoundThreshold() const
 {
-	//return woundHandler.getHeavywoundThreshold();
-	return 0.0;
+	;
+	return heavyWoundThreshold;
 
 }
+
+/*
+Use the last element of the std::list<AppliedForceEffect> to calculate the wound severity.
+The last element is the force remaining after it has been absorbed by armor etc.
+
+WoundTypes::EnWoundSeverity BodyPart::calculateWoundSeverity(AppliedForceBodypartPair & appliedForcePair)
+{
+
+	WoundTypes::EnWoundSeverity woundSeverity = WoundTypes::EnWoundSeverity::enErrorSeverity;
+
+	float finalForce = GetFinalForce(appliedForcePair).getEndForce();
+
+	if (finalForce >= heavyWoundThreshold)
+	{
+		woundSeverity = WoundTypes::EnWoundSeverity::heavyWound;
+		
+	}
+	else if (finalForce >= mediumWoundThreshold)
+	{
+		woundSeverity = WoundTypes::EnWoundSeverity::mediumWound;
+
+	}
+	else if (finalForce >= lightWoundTreshold)
+	{
+		woundSeverity = WoundTypes::EnWoundSeverity::lightWound;
+	}
+
+	return woundSeverity;
+}
+*/

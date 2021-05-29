@@ -5,9 +5,10 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "../Material/ForceEnums.hpp"
+//#include "../Material/ForceEnums.hpp"
 #include <boost/assign/list_of.hpp> 
-#include "../DamageTraverser.hpp"
+//#include "../DamageTraverser.hpp"
+
 
 
 namespace WoundTypes
@@ -27,17 +28,21 @@ namespace WoundTypes
 	{
 		light,
 		medium,
-		heavy
+		heavyWound,
+		enErrorSeverity
 	};
 
 	/*
-	Both the wounds that a body part can receive and the wounds a damage traveser can cause. 
+	This enumerated type is used for multiple things.
+	1) In the wounds possible to a body part. Identifies what kind of a wound a bodypart can suffer from. 
+	2) DamageTraversers, letting it know what kind of wounds it can cause.
+	3) A bodypart (specifically the WoundSeverityPair), which identifies what kind of wounds a bodypart suffers from. 
 	*/
 	enum EnWoundProperties
 	{
-		enCanBleed,
-		enCanFracture,
-		enCanRupture
+		enBleed,
+		enFracture,
+		enRupture
 	};
 
 	/*
@@ -45,9 +50,6 @@ namespace WoundTypes
 	*/
 	//This is the template header for the wound characteristics file. Used for error checking
 	static std::string WOUND_CHARACTERISTICS_HEADER = "BodygraphToken,CanBleed,CanFracture,CanRupture";
-	
-
-
 	
 	//A bodypart has a WoundsPossible that tell it what kind of wounds are...possible. 
 	//The enumerated types match up with the Wound Characteristics file
@@ -61,11 +63,11 @@ namespace WoundTypes
 	//Used for the DamageTraverser. These are the wounds an attack can cause. 
 	typedef std::vector<WoundProperties> CanCauseWounds;
 
-
+	//Identifies how severe a wound is on a bodypart
+	typedef std::pair< EnWoundProperties, EnWoundSeverity> WoundSeverityPair;
 
 	WoundPossibleMap process_wound_characteristics_file(std::string fname);
-
-	//void CalculateWoundSeverity(AppliedForceBodypartPair &appliedForcePair);
+	
 
 
 }

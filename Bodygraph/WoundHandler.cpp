@@ -9,7 +9,7 @@ using namespace boost;
 //Due to the way I parse the CSV, this will make filling the WoundProperties easier. I'm using boost tokenizer to handle the CSV file, where the tokenized
 //Values are traversed with an iterator. We want to construct WoundProperties as we iterate. Since the order is guaranteed, we can use this vector
 //to create the WoundProperties vector
-std::vector<WoundTypes::EnWoundProperties> wound_property_vector = boost::assign::list_of(WoundTypes::EnWoundProperties::enCanBleed)(WoundTypes::EnWoundProperties::enCanFracture)(WoundTypes::EnWoundProperties::enCanRupture);
+std::vector<WoundTypes::EnWoundProperties> wound_property_vector = boost::assign::list_of(WoundTypes::EnWoundProperties::enBleed)(WoundTypes::EnWoundProperties::enFracture)(WoundTypes::EnWoundProperties::enRupture);
 
 WoundTypes::WoundPossibleMap WoundTypes::process_wound_characteristics_file(std::string fname)
 {

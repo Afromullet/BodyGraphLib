@@ -2,9 +2,14 @@
 
 #include "DamageTraverser.hpp"
 #include <boost/graph/adjacency_list.hpp>
-#include "Item/ArmorLayer.h"
+
 #include <iostream>
 
+//Access the last element of the AppliedForceEffect list. The last element is the remaining force after it has been absorbed by ArmorLayers and other things
+//AppliedForceEffect GetFinalForce(AppliedForceBodypartPair &appliedForcePair)
+//{
+	//return appliedForcePair.second.back();
+//}
 
 DamageTraverser::DamageTraverser(std::string _traverserName, ApplyingForce _applyingForce, GraphTraversalTypes::TraversalTypes _traversalType) :
 	traverserName(_traverserName),applyingForce(_applyingForce),traversalType(_traversalType)
@@ -16,10 +21,8 @@ DamageTraverser::DamageTraverser(std::string _traverserName, ApplyingForce _appl
 This returnns a ForceEffectHandler, which tells us how every bodypart in the CreatureBody that's specified by path (vertex index), will have a force applied to it.
 Every bodypart has no or x number of pieces of armored, layered over one another (the next element in the list) The ForceEffect handlers tells us how the layer absorbed the armor, and which bodypart had that layer
 
-
 A DamageTrasverser is initialized with an ApplyForce. (The amount of force we produce, regardless of anything on another creature/objects body. 
 This handles the interaction between the force and that body, based on the targets in path
-
 */
 ForceEffectHandler DamageTraverser::ApplyForceToPath(std::vector<int>& path, CreatureBody &body)
 {
@@ -39,19 +42,15 @@ ForceEffectHandler DamageTraverser::ApplyForceToPath(std::vector<int>& path, Cre
 		}
 
 		//Now we add an element to the map in forceeffectHandler. We don't care if it propagates yet or not, we just need to store teh data.
-		
 		BodyPart *bp = body.getBodyPartPointer(*it);
 		forceffecthandler.addElementToForceEffectMap(bp, appliedForces);
-		
 	}
 	return forceffecthandler;
 }
 
 
 /*
-
 For vertex n, Get a random path of length depth. If there aren't enough vertices left to equal depth, then it returns everything up to that point.
-
 */
 std::vector<int> DamageTraverser::getRandomDepthPath(int n, int depth, CreatureBody &body)
 {
@@ -88,8 +87,6 @@ void DamageTraverser::setCanCauseWounds(WoundTypes::CanCauseWounds _canCauseWoun
 
 void ForceEffectHandler::processAppliedForceEffects()
 {
-
-	
 	std::list<AppliedForceEffect>::iterator appliedForceIt; //Having this as a local variable makes it more clear than refering to mapIt->second
 
 	/*
@@ -99,26 +96,19 @@ void ForceEffectHandler::processAppliedForceEffects()
 	*/
 	for (auto mapIt = forceEffectMap.begin(); mapIt != forceEffectMap.end(); ++mapIt)
 	{
-
 		if ((mapIt->first != nullptr) && (mapIt->first->getNumberOfArmorLayers() == 0))
 		{
-	
 			processForceAppliedToBodypart(*mapIt); //If there's no armor Layer, apply the force directly to the body part. 
 		}
 		if (mapIt->first == nullptr || mapIt->first->getNumberOfArmorLayers() != mapIt->second.size())
 		{
 			//TODO think of how to handle error condition
-		
 		}
 		else
 		{
-
 			appliedForceIt = mapIt->second.begin();
-
 			for (auto armorIt = mapIt->first->getLayerIterator(); armorIt != mapIt->first->getLayerIteratorEnd(); ++armorIt)
 			{
-
-
 				if (ForceEffecectTypes::isDeformationEffectType(appliedForceIt->getMaterialEffectType()))
 				{
 					processDeformationEffect(*armorIt, *appliedForceIt);
@@ -128,31 +118,18 @@ void ForceEffectHandler::processAppliedForceEffects()
 					processFractureEffect(*armorIt, *appliedForceIt);
 					//todo
 				}
-
 				//Since the armorLayer and appliedForceList are equal in size, we can move the appliedForceIterator one step ahead for every armorIt iteration
 				std::advance(appliedForceIt, 1);
 			}
 
-
 			//Next we apply getForceAppliedToBodypart the mapIt->first, which it the bodyPart we're currently processing with the main loop that iterates over the ForcEffectMap
-			
-
 			processForceAppliedToBodypart(*mapIt);
-
-
-
-
-
-			//for(auto layerIt =  bp.get)
-			//ArmorLayers &armorLayer = 
-			//for(auto armroIt = bp->getArmorLayerRef()::iterator; )
 		}
 	}
 }
 
 void ForceEffectHandler::processDeformationEffect(Armor &armor, AppliedForceEffect appliedForceEffect)
 {
-
 
 	//Although I check the AppliedForceEffect materialEffect type before calling this function currently, that may not always be the case.
 	//So be safe and check it here. 
@@ -166,10 +143,7 @@ void ForceEffectHandler::processDeformationEffect(Armor &armor, AppliedForceEffe
 		{
 			armor.deformMaterial(appliedForceEffect.getDamageAmount());
 		}
-		
-	
 	}
-
 }
 
 void ForceEffectHandler::processFractureEffect(Armor &armor, AppliedForceEffect appliedForceEffect)
@@ -180,7 +154,6 @@ void ForceEffectHandler::processFractureEffect(Armor &armor, AppliedForceEffect 
 	{
 		armor.fractureMaterial(appliedForceEffect.getDamageAmount());
 	}
-
 }
 
 /*
@@ -205,12 +178,7 @@ void ForceEffectHandler::processForceAppliedToBodypart(std::pair <BodyPart*, std
 {
 	float endDamage = appliedForceBodypartPair.second.back().getDamageAmount(); //The last enforce is the amount of remaining force after being absorbed by the ArmorLayers on the bodypart.
 	appliedForceBodypartPair.first->addToDamageAmount(endDamage); //For now we just apply the last damageAMount
-
-
 }
-
-
-
 
 /*
 This adds an element to the ForceEffectMap. Each element has a bodypart, and a list of how the layers of armor on the bodypart absorbed the map. This method assumes that the force has already been calculated. 
@@ -218,15 +186,12 @@ This adds an element to the ForceEffectMap. Each element has a bodypart, and a l
 */
 void ForceEffectHandler::addElementToForceEffectMap(BodyPart *bp, std::list<AppliedForceEffect> forceEffectList)
 {
-
 	forceEffectMap.push_back(std::pair(bp, forceEffectList));
-
 }
 
 int ForceEffectHandler::getforceEffectMapSize()
 {
 	return forceEffectMap.size();
-
 }
 
 ForceEffectMap ForceEffectHandler::getForceEffectMap()

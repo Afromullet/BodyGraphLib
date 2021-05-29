@@ -3,7 +3,7 @@
 #include <string>
 #include <list>
 #include "../Material/Material.hpp"
-//#include "../Material/ForceEnums.hpp"
+#include "../Material/ForceEnums.hpp"
 #include "../Material/Forces.hpp"
 #define BOOST_UUID_FORCE_AUTO_LINK //Todo figure out a better way to handle this than using the define here
 #include <boost/uuid/uuid.hpp>

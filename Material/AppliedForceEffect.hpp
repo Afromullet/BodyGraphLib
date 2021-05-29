@@ -1,6 +1,10 @@
 #pragma once
 
 #include "ForceEnums.hpp"
+#include "ErrorValues.h"
+
+
+
 
 //Inspired by Dwarf Fortress
 

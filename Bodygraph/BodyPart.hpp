@@ -1,12 +1,21 @@
+
+
 #pragma once
 
 //#include <string>
 //#include <list>
+//#include "../Item/Armor.hpp"
 #include "../Item/ArmorLayer.h"
-//#include "../Bodygraph/WoundHandler.hpp"
+#include "WoundHandler.hpp"
 
-//class ArmorLayers; Todo doesn't look like I still need the forward declaration, but leave it here in case things break in relation to ArmorLayers
 
+#include "ErrorValues.h"
+
+#include <string>
+#include <list>
+
+
+class Armor;
 
 /* 
  This is a generic class for a body part. Rather than breaking down the body part into separate clases,
@@ -38,10 +47,15 @@ private:
     bool isOrgan;
 	std::string bodyPartName;
     
+	float lightWoundTreshold;
+	float mediumWoundThreshold;
+	float heavyWoundThreshold;
+	
     float relativeSize; //How large this part is in relation to the whole body. A percent..I.E, .53 is 53%
 
 	ArmorLayers armorlayer; 
 
+	std::vector<WoundTypes::WoundSeverityPair> woundsOnBodypart; //The kind of wounds that this bodypart is suffering from. 
 
 	//WoundTypes::WoundProperties woundPropeties; //The kind of wounds that can be applied to this bodypart. 
 
@@ -67,6 +81,10 @@ public:
 	void setHealth(int _health);
 	void setDamageAmount(float amount);
 
+	void setLightWoundThreshold(float amount);
+	void setMediumWoundThreshold(float amount);
+	void setHeavyWoundThreshold(float amount);
+
 	void addToDamageAmount(float amount);
 
 	void addArmorToLayer(Armor armor);
@@ -88,7 +106,7 @@ public:
 	float getMediumoundThreshold() const;
 	float getHeavywoundThreshold() const;
 
-
+	//WoundTypes::EnWoundSeverity calculateWoundSeverity(AppliedForceBodypartPair &appliedForcePair);
 
 };
 

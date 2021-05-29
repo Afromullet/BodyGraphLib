@@ -2,11 +2,15 @@
 
 
 #include <boost/graph/adjacency_list.hpp>
-//#include <boost/graph/adjacency_iterator.hpp> guess I don't really need this. Leaving it here just in case
+#include <boost/graph/adjacency_iterator.hpp> 
 #include "BodyPart.hpp"
+
+#include <string>
 
 
 using namespace boost;
+
+//class BodyPart;
 
 /*
 Internal edge means that it is "inside" of the body part. Don't want to have a graph with both directed and non directed edges. I have a feeling that would be painful to do inside of boost 
